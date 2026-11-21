@@ -535,7 +535,7 @@ body[data-tone="dark"] .nav { color: var(--white); }
 
 <!-- 6 PROTOTYPE -->
 <section class="slide dark grid-bg" id="prototype" data-title="Prototype" aria-label="Prototype showcase">
-  <p class="eyebrow a" style="--d:0">Prototype showcase</p>
+  <p class="eyebrow a" style="--d:0">Prototype showcase · live demo</p>
   <h2 class="a" style="--d:1">Built, deployed and tested</h2>
   <div class="proto">
     <div class="carousel pop" style="--d:2">
@@ -637,31 +637,32 @@ body[data-tone="dark"] .nav { color: var(--white); }
 </nav>
 
 <script>
-// Shared script text: used by the script page and copied into the deck's speaker notes.
+// Shared script text: used by the script page and the web deck's speaker notes.
+// Cues: [pause] = 1 s pause, [click] = press the on-screen button, [demo] = live demo action (counted as 10 s).
 window.PITCH = [
   { slide: 1, title: "Cover", speaker: "Syazwan",
     text: "Assalamualaikum and good morning, Dr. Syahida. We are Group 6B, and this is **SISA: WasteHotspot AI**. [pause] One photo in, township intelligence out.",
     tip: "Change to “good afternoon” if needed. Smile and slow down; this sets the pace for everyone." },
   { slide: 2, title: "Team", speaker: "Syazwan",
-    text: "I am Syazwan. Our team leader, **Arief Najib**, built the prototype. **Aiman** will explain the problem, **Ariff** will introduce our solution, and **Haziq** will explain what makes it different. I will close with our target customers. Aiman, over to you.",
+    text: "I am Syazwan. Our team leader, **Arief Najib**, built the prototype. **Aiman** will explain the problem, **Ariff** our solution, and **Haziq** what makes it different. I will close with our customers. Aiman?",
     tip: "Gesture to each member as you say their name." },
   { slide: 3, title: "Problem statement", speaker: "Aiman",
-    text: "Thank you, Syazwan. **Three out of four** residents we surveyed have never reported the rubbish they see. [pause] This was filmed by our own team: rubbish bags dumped beside a public walkway. And it is a national problem. Malaysia throws away around **39,000 tonnes** of solid waste every day, and in 2024, **2,634** illegal dumping sites were shut down. Residents can already report through hotlines, WhatsApp or SISPAA, but every report becomes a separate complaint. So why do people stay silent?",
+    text: "Thank you, Syazwan. **Three out of four** residents we surveyed have never reported the rubbish they see. [pause] This was filmed by our own team, beside a public walkway. Nationally, Malaysia throws away around **39,000 tonnes** of solid waste every day, and **2,634** illegal dumping sites were shut down in 2024. Residents can report through hotlines, WhatsApp or SISPAA, but every report becomes a separate complaint. So why do people stay silent?",
     tip: "Pause for a full second after “three out of four”. Point at the video on the right." },
   { slide: 4, title: "Survey findings", speaker: "Aiman",
-    text: "Our survey of 44 residents gives the answer. **65.9%** see rubbish dumped near their home at least once a month. But of those who never reported, the biggest reason is that **39.4%** simply don’t know where to report. Satisfaction with current channels is only **2.64 out of 5**. Residents also told us what they want: send reports to the right council, and allow follow-up photos if the rubbish is still there. Ariff will now show you our solution.",
+    text: "Our survey of 44 residents answers that. **65.9%** see dumped rubbish near their home at least once a month. Among those who never reported, the top reason, at **39.4%**, is that they don’t know where to report. Satisfaction with current channels is only **2.64 out of 5**. Residents asked for two things: send reports to the right council, and allow follow-up photos. Ariff?",
     tip: "Read the numbers slowly. The orange bar is your main point." },
   { slide: 5, title: "Solution", speaker: "Ariff",
-    text: "Thank you, Aiman. SISA works on the phone residents already have, in five steps. One, **report**: [click] snap a photo, and the app records the location. Two, **verify**: AI checks the waste type, how serious it is, and that it is on public land. Three, **merge**: [click] reports of the same rubbish become one hotspot, and each account can confirm only once. Four, **prioritise**: [click] three confirmations or three days unresolved makes it urgent. Five, **track**: residents follow the case to Resolved and earn EcoPoints. Residents use the app; township management uses the admin dashboard. Najib will now show our prototype.",
+    text: "Thank you, Aiman. SISA works on the phone residents already have, in five steps. One, **report**: [click] snap a photo with the location. Two, **verify**: AI checks the waste type, severity and public land. Three, **merge**: [click] the same rubbish becomes one hotspot, one confirmation per account. Four, **prioritise**: [click] three confirmations or three days unresolved makes it urgent. Five, **track**: residents follow it to Resolved and earn EcoPoints. Najib will now show you the real app.",
     tip: "Each [click] is the orange button in the simulator: Resident A, then B, then C. The map turns red and URGENT on the third click. Press Reset before the pitch starts." },
-  { slide: 6, title: "Prototype showcase", speaker: "Najib",
-    text: "Thank you, Ariff. This is our working prototype. First, the resident takes a photo and the app scans it. Second, [click] the home screen shows EcoPoints and the township hotspot map. Third, [click] when three residents confirm the same hotspot, management gets an **urgent alert**. We built it with **Flutter and Firebase**, so the resident app and the admin dashboard update in real time. In testing, merging, EcoPoints and the Day 2 and Day 3 alerts all worked on desktop and iPhone. To be transparent, the AI scan is still simulated, so our next step is to connect a real AI model. Haziq?",
-    tip: "Each [click] is the right arrow under the phones; clicking stops the automatic rotation so the screens follow you. Keep the live demo ready for Q&A." },
+  { slide: 6, title: "Prototype showcase · live demo", speaker: "Najib",
+    text: "Thank you, Ariff. I built this prototype, so let me show you the real app. [demo] This is my phone, live. I take a photo of the rubbish, and the app scans it. [demo] Two neighbours already reported this same rubbish, so instead of a new complaint, my report joins their hotspot as the third confirmation. [demo] And on the admin dashboard, the case has just turned **URGENT** for management, in real time. We built it with **Flutter and Firebase**. In testing, merging, EcoPoints and the Day 2 and Day 3 alerts all worked on desktop and iPhone. To be transparent, the AI scan is still simulated, so connecting a real AI model is our next step. Haziq?",
+    tip: "Syazwan presses Alt+Tab to the demo windows when you say “let me show you”, and Alt+Tab back to the deck, then moves to slide 7, when you say “Haziq”. Each [demo] is one action on your phone; point at the dashboard for the URGENT moment. If anything fails, keep talking while Syazwan plays the demo video. Never try to fix it live." },
   { slide: 7, title: "Value proposition", speaker: "Haziq",
-    text: "Thank you, Najib. Reporting itself is not new. What is new is the **logic after the report**. Today, if ten residents report the same rubbish, that is ten separate complaints. SISA merges them into one hotspot. Existing channels have no clear way to rank urgency; SISA raises priority automatically. And residents rarely hear back; SISA lets them track every case to Resolved. Residents agree: **88.6%** found one-photo reporting useful, **84.1%** tracking, and **79.5%** priority escalation. Syazwan will explain who we serve.",
+    text: "Thank you, Najib. Reporting is not new. What is new is the **logic after the report**. If ten residents report the same rubbish today, that is ten separate complaints; SISA makes it one hotspot. Existing channels cannot rank urgency; SISA raises priority automatically. And residents can track every case to Resolved. Residents agree: **88.6%** rated one-photo reporting useful, **84.1%** tracking, and **79.5%** priority escalation. Syazwan?",
     tip: "Stress “after”. Move your hand left to right across the table rows." },
   { slide: 8, title: "Target customer", speaker: "Syazwan",
-    text: "Thank you, Haziq. Our users are residents in taman, townships and flats, who use the app for free. **84.1%** said they would use SISA in their area. Our paying customers are township and property management companies, local councils and residents’ associations, who subscribe to the dashboard. This is a **B2B2C** model. **63.6%** supported management paying for it, including all four committee members we surveyed. Our next step is a two-week pilot in one residential area.",
+    text: "Thank you, Haziq. Our users are residents in taman, townships and flats, who use the app for free; **84.1%** said they would use it. Our paying customers are township and property management companies, local councils and residents’ associations, who subscribe to the dashboard. This is a **B2B2C** model. **63.6%** supported management paying, including all four committee members we surveyed. Next, a two-week pilot in one residential area.",
     tip: "Say “B to B to C” clearly; it is the business model in one phrase." },
   { slide: 9, title: "Close", speaker: "Syazwan",
     text: "We don’t just report waste. [pause] We turn waste reports into **township intelligence**. Thank you, and we welcome your questions.",
@@ -738,11 +739,11 @@ window.QA = [
   function fillNotes(i) {
     const s = P[i]; if (!s) return;
     document.getElementById('nSpk').textContent = s.speaker;
-    const w = s.text.replace(/\[pause\]|\[click\]|\*\*/g, '').split(/\s+/).filter(Boolean).length;
-    document.getElementById('nMeta').textContent = `Slide ${i + 1} · ${s.title} · about ${Math.round(w / 130 * 60)} seconds`;
+    const w = s.text.replace(/\[pause\]|\[click\]|\[demo\]|\*\*/g, '').split(/\s+/).filter(Boolean).length;
+    document.getElementById('nMeta').textContent = `Slide ${i + 1} · ${s.title} · about ${Math.round(w / 130 * 60) + 10 * (s.text.match(/\[demo\]/g) || []).length} seconds`;
     const esc = t => t.replace(/&/g, '&amp;').replace(/</g, '&lt;');
-    document.getElementById('nText').innerHTML = esc(s.text).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\[pause\]/g, '<em>(pause)</em>').replace(/\[click\]/g, '<em class="clk">[click]</em>');
-    document.getElementById('nTip').textContent = 'Delivery: ' + s.tip.replace(/\[click\]/g, 'click');
+    document.getElementById('nText').innerHTML = esc(s.text).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\[pause\]/g, '<em>(pause)</em>').replace(/\[click\]/g, '<em class="clk">[click]</em>').replace(/\[demo\]/g, '<em class="clk">[demo]</em>');
+    document.getElementById('nTip').textContent = 'Delivery: ' + s.tip.replace(/\[click\]/g, 'click').replace(/\[demo\]/g, 'demo');
   }
 
   const reel = document.getElementById('reel');
