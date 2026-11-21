@@ -203,25 +203,82 @@ body[data-tone="dark"] .nav { color: var(--white); }
 .pill { font-size: calc(1 * var(--u)); padding: calc(.45 * var(--u)) calc(1 * var(--u)); border-radius: 99px; background: var(--paper-2); color: var(--ink); }
 .quote { font-size: calc(1 * var(--u)); font-style: italic; padding: calc(.5 * var(--u)) calc(1.1 * var(--u)); background: var(--white); border-left: 3px solid var(--amber); border-radius: calc(.5 * var(--u)); }
 
-/* ---------- 5 solution + simulator ---------- */
-.sol { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr); gap: calc(2.4 * var(--u)); flex: 1; min-height: 0; }
-.steps { display: flex; flex-direction: column; gap: calc(.7 * var(--u)); }
-.step { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: calc(.4 * var(--u)) calc(1.1 * var(--u)); align-items: center; padding: calc(.9 * var(--u)) calc(1.1 * var(--u)); border-radius: calc(1 * var(--u)); background: var(--white); border: 1px solid var(--paper-2); transition: background .35s, border-color .35s, transform .35s var(--ease), box-shadow .35s; }
-.step .si { grid-row: span 2; width: calc(3.2 * var(--u)); height: calc(3.2 * var(--u)); border-radius: calc(.8 * var(--u)); display: grid; place-items: center; background: var(--paper-2); color: var(--green); transition: background .35s, color .35s; }
-.step .si .ico { width: calc(1.6 * var(--u)); height: calc(1.6 * var(--u)); }
-.step h3 { font-size: calc(1.3 * var(--u)); font-weight: 700; }
+/* ---------- 5 solution + 3D simulator ---------- */
+.sol { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.5fr); gap: calc(2 * var(--u)); flex: 1; min-height: 0; }
+.steps { display: flex; flex-direction: column; gap: calc(.6 * var(--u)); }
+.step { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: calc(.3 * var(--u)) calc(1 * var(--u)); align-items: center; padding: calc(.8 * var(--u)) calc(1 * var(--u)); border-radius: calc(1 * var(--u)); background: var(--white); border: 1px solid var(--paper-2); transition: background .4s, border-color .4s, transform .4s var(--ease), box-shadow .4s, opacity .4s; }
+.step .si { grid-row: span 2; width: calc(3 * var(--u)); height: calc(3 * var(--u)); border-radius: calc(.8 * var(--u)); display: grid; place-items: center; background: var(--paper-2); color: var(--green); transition: background .4s, color .4s; }
+.step .si .ico { width: calc(1.5 * var(--u)); height: calc(1.5 * var(--u)); }
+.step h3 { font-size: calc(1.25 * var(--u)); font-weight: 700; }
 .step h3 span { font-family: var(--f-b); font-size: calc(.75 * var(--u)); letter-spacing: .12em; color: var(--t-dark); margin-right: calc(.5 * var(--u)); }
-.step p { font-size: calc(.98 * var(--u)); color: var(--t-dark); line-height: 1.35; }
+.step p { font-size: calc(.92 * var(--u)); color: var(--t-dark); line-height: 1.32; }
 .step.done .si { background: var(--green); color: var(--white); }
-.step.now { border-color: var(--green); transform: translateX(calc(.8 * var(--u))) scale(1.02); box-shadow: 0 calc(.8 * var(--u)) calc(2 * var(--u)) rgba(11,36,28,.14); }
-.step.hot.done .si { background: var(--amber); color: var(--ink); }
-.sim { background: linear-gradient(160deg, var(--ink-2), var(--ink)); color: var(--white); border-radius: calc(1.4 * var(--u)); padding: calc(1.4 * var(--u)); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; gap: calc(1 * var(--u)); min-height: 0; box-shadow: 0 calc(2 * var(--u)) calc(4 * var(--u)) rgba(11,36,28,.3); }
+.step.now { border-color: var(--green); background: #F4FBF6; transform: translateX(calc(.9 * var(--u))) scale(1.03); box-shadow: 0 calc(.8 * var(--u)) calc(2 * var(--u)) rgba(11,36,28,.16); }
+.step.now .si { background: var(--green); color: var(--white); }
+.step.hot.now, .step.hot.done { border-color: var(--amber); }
+.step.hot.now .si, .step.hot.done .si { background: var(--amber); color: var(--ink); }
+.sim { background: linear-gradient(160deg, var(--ink-2), var(--ink)); color: var(--white); border-radius: calc(1.4 * var(--u)); padding: calc(1.2 * var(--u)); display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr) auto; gap: calc(.9 * var(--u)); min-height: 0; box-shadow: 0 calc(2 * var(--u)) calc(4 * var(--u)) rgba(11,36,28,.3); }
 .sim-head { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .sim-head .ct { font-size: calc(1.2 * var(--u)); }
 .live { display: inline-flex; align-items: center; gap: 6px; font-size: calc(.8 * var(--u)); color: var(--t-light); }
-.live i { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); animation: blink 1.4s infinite; }
-.map { width: 100%; height: 100%; min-height: calc(14 * var(--u)); border-radius: calc(1 * var(--u)); background: var(--ink-2); display: block; }
-.map text { font-family: var(--f-b); }
+.live i { width: 8px; height: 8px; border-radius: 50%; background: var(--alert); animation: blink 1.4s infinite; }
+.scene { position: relative; min-height: calc(18 * var(--u)); border-radius: calc(1 * var(--u)); overflow: hidden; background: radial-gradient(80% 70% at 50% 40%, #1b4a3a, #0a1f18); }
+.cam { position: absolute; left: 50%; top: 50%; width: 640px; height: 420px; margin: -210px 0 0 -320px; perspective: 1300px; perspective-origin: 50% 30%; }
+.world { position: absolute; inset: 0; transform-style: preserve-3d; }
+.world * { transform-style: preserve-3d; }
+.gnd { position: absolute; inset: 0; background: #3f8f4f; border-radius: 6px; box-shadow: 0 0 0 6px #2f6f3c; }
+.flat { position: absolute; }
+.road { background: #47524d; }
+.road.h::after, .road.v::after { content: ""; position: absolute; }
+.road.h::after { left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px; background: repeating-linear-gradient(90deg, #e9e3c8 0 14px, transparent 14px 26px); }
+.road.v::after { top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: repeating-linear-gradient(180deg, #e9e3c8 0 14px, transparent 14px 26px); }
+.walk { background: #c9bfa4; }
+.park { background: #4ea35d; border-radius: 10px; }
+.pond { background: radial-gradient(#7cc6e6, #3d8fb3); border-radius: 50%; }
+.lbl { position: absolute; font: 700 9px/1 var(--f-b); letter-spacing: 1.4px; color: rgba(255,255,255,.78); white-space: nowrap; }
+.box { position: absolute; }
+.box > i { position: absolute; left: 0; top: 0; transform-origin: 0 0; backface-visibility: visible; }
+.bb { position: absolute; width: 0; height: 0; }
+.bb > .up { position: absolute; transform-origin: 50% 100%; transform: rotateZ(calc(-1 * var(--cam, 0deg))) rotateX(-90deg); }
+.person { transition: transform 2.3s linear; }
+.person .up { left: -10px; top: -38px; width: 20px; height: 38px; }
+.person .up b { position: absolute; left: 4px; top: 0; width: 12px; height: 12px; border-radius: 50%; background: #3b2a22; }
+.person .up s { position: absolute; left: 1px; top: 11px; width: 18px; height: 27px; border-radius: 7px 7px 3px 3px; background: var(--c); text-decoration: none; }
+.person.walking .up { animation: bob .36s ease-in-out infinite; }
+@keyframes bob { 50% { margin-top: -3px; } }
+.person .tag { position: absolute; left: 50%; bottom: 34px; transform: translateX(-50%); white-space: nowrap; font: 800 11px/1 var(--f-b); padding: 4px 7px; border-radius: 99px; background: rgba(251,251,248,.95); color: var(--ink); opacity: 0; transition: opacity .3s, bottom .3s; }
+.person .tag.show { opacity: 1; bottom: 46px; }
+.person .tag.bad { background: var(--alert); color: #fff; }
+.person .tag.eco { background: var(--mint); }
+.flash { position: absolute; width: 60px; height: 60px; left: -30px; top: -30px; border-radius: 50%; background: radial-gradient(#fff, rgba(255,255,255,0) 65%); opacity: 0; pointer-events: none; }
+.flash.go { animation: flash .6s ease-out; }
+@keyframes flash { 20% { opacity: 1; transform: scale(1.4); } 100% { opacity: 0; transform: scale(2); } }
+.pile { transition: opacity .8s, transform .8s; }
+.pile.gone { opacity: 0; transform: scale(.3); }
+.ringg { position: absolute; left: -40px; top: -40px; width: 80px; height: 80px; border-radius: 50%; border: 3px solid var(--rc, #F2A33A); opacity: 0; }
+.ringg.on { animation: ringg 1.6s ease-out infinite; }
+.ringg.on.r2 { animation-delay: .8s; }
+@keyframes ringg { 0% { opacity: .9; transform: scale(.3); } 100% { opacity: 0; transform: scale(1.6); } }
+.scan { position: absolute; left: -45px; top: -45px; width: 90px; height: 90px; border-radius: 50%; background: conic-gradient(from 0deg, rgba(143,227,180,.75), rgba(143,227,180,0) 30%); opacity: 0; }
+.scan.on { opacity: 1; animation: spin 1.1s linear infinite; }
+@keyframes spin { to { rotate: 360deg; } }
+.beacon .up { left: -15px; top: -120px; width: 30px; height: 120px; opacity: 0; transition: opacity .5s; }
+.beacon.on .up { opacity: 1; }
+.beacon .beam { position: absolute; left: 11px; bottom: 0; width: 8px; height: 86px; border-radius: 4px; background: linear-gradient(0deg, var(--bc), rgba(255,255,255,0)); box-shadow: 0 0 18px var(--bc); transition: background .5s, box-shadow .5s; }
+.beacon .badge2 { position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font: 800 14px/1 var(--f-d); color: var(--ink); background: var(--bc); box-shadow: 0 0 16px var(--bc); transition: background .5s, transform .3s var(--ease); }
+.beacon.bump .badge2 { transform: scale(1.35); }
+.beacon { --bc: #F2A33A; }
+.beacon.urgent { --bc: #E4572E; }
+.beacon.urgent .badge2 { color: #fff; }
+.beacon.ok { --bc: #8FE3B4; }
+.aitag .up { left: -84px; top: -150px; width: 168px; height: 30px; }
+.aitag .up p { font: 700 10.5px/1.25 var(--f-b); background: rgba(11,36,28,.92); color: var(--mint); border: 1px solid rgba(143,227,180,.5); border-radius: 8px; padding: 5px 7px; text-align: center; opacity: 0; transform: translateY(6px); transition: opacity .4s, transform .4s; }
+.aitag.on .up p { opacity: 1; transform: none; }
+.truck { transition: transform 2.2s cubic-bezier(.45,0,.3,1), opacity .4s; opacity: 0; }
+.truck.show { opacity: 1; }
+.toast { position: absolute; left: 50%; top: 10px; transform: translate(-50%, -140%); z-index: 3; display: flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 10px; background: var(--alert); color: #fff; font-size: calc(.85 * var(--u)); font-weight: 700; box-shadow: 0 10px 24px rgba(0,0,0,.35); transition: transform .5s var(--ease); white-space: nowrap; }
+.toast.show { transform: translate(-50%, 0); }
+.toast.ok { background: var(--green); }
 .case { display: flex; flex-direction: column; gap: calc(.7 * var(--u)); min-height: 0; }
 .case-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .case-name { font-weight: 700; font-size: calc(1.05 * var(--u)); }
@@ -234,21 +291,18 @@ body[data-tone="dark"] .nav { color: var(--white); }
 .stat { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.07); border-radius: calc(.7 * var(--u)); padding: calc(.6 * var(--u)) calc(.8 * var(--u)); }
 .stat b { display: block; font-family: var(--f-d); font-size: calc(1.8 * var(--u)); color: var(--mint); font-variant-numeric: tabular-nums; }
 .stat span { font-size: calc(.78 * var(--u)); color: var(--t-light); }
-.log { list-style: none; padding: 0; display: flex; flex-direction: column; gap: calc(.45 * var(--u)); overflow: auto; min-height: 0; flex: 1; }
-.log li { font-size: calc(.86 * var(--u)); line-height: 1.35; color: var(--t-light); padding-left: calc(.9 * var(--u)); border-left: 2px solid var(--ink-3); animation: rise .45s var(--ease) both; }
+.log { list-style: none; padding: 0; display: flex; flex-direction: column; gap: calc(.45 * var(--u)); overflow: hidden; min-height: 0; flex: 1; }
+.log li { font-size: calc(.84 * var(--u)); line-height: 1.35; color: var(--t-light); padding-left: calc(.9 * var(--u)); border-left: 2px solid var(--ink-3); animation: rise .45s var(--ease) both; }
 .log li:first-child { color: var(--white); border-color: var(--amber); }
 .log li.bad { border-color: var(--alert); }
-.sim-ctl { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: calc(.6 * var(--u)); }
-.sbtn { border: 1px solid var(--ink-3); background: rgba(255,255,255,.04); color: var(--white); border-radius: calc(.7 * var(--u)); padding: calc(.6 * var(--u)) calc(1 * var(--u)); font-size: calc(.92 * var(--u)); font-weight: 700; display: inline-flex; align-items: center; gap: calc(.5 * var(--u)); transition: background .2s, transform .15s; }
-.sbtn:hover:not(:disabled) { background: var(--ink-3); }
-.sbtn:active:not(:disabled) { transform: scale(.97); }
-.sbtn.primary { background: var(--amber); color: var(--ink); border-color: var(--amber); box-shadow: 0 0 calc(1.6 * var(--u)) rgba(242,163,58,.35); }
-.sbtn:disabled { opacity: .35; cursor: default; box-shadow: none; }
+.sim-ctl { grid-column: 1 / -1; display: flex; align-items: center; gap: calc(.8 * var(--u)); }
+.sbtn { border: 1px solid var(--ink-3); background: rgba(255,255,255,.05); color: var(--white); border-radius: calc(.7 * var(--u)); padding: calc(.5 * var(--u)) calc(.9 * var(--u)); font-size: calc(.88 * var(--u)); font-weight: 700; display: inline-flex; align-items: center; gap: calc(.5 * var(--u)); transition: background .2s; }
+.sbtn:hover { background: var(--ink-3); }
 .sbtn .ico { width: calc(1 * var(--u)); height: calc(1 * var(--u)); }
+.tl { flex: 1; height: 6px; border-radius: 99px; background: var(--ink-3); overflow: hidden; }
+.tl i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--mint), var(--amber)); }
+.tl-lab { font-size: calc(.8 * var(--u)); color: var(--t-light); white-space: nowrap; min-width: calc(9 * var(--u)); text-align: right; }
 .foot-note { font-size: calc(.82 * var(--u)); color: var(--t-dark); }
-@keyframes pulse { from { r: 10; opacity: .9; } to { r: 46; opacity: 0; } }
-.pulse { animation: pulse 1.6s ease-out infinite; }
-.pulse.p2 { animation-delay: .8s; }
 
 /* ---------- 6 prototype: 3D carousel ---------- */
 .proto { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: calc(3 * var(--u)); align-items: center; flex: 1; }
@@ -364,8 +418,8 @@ body[data-tone="dark"] .nav { color: var(--white); }
   .reel .cap { bottom: 14px; }
   .sim { grid-template-rows: auto; min-height: auto; }
   .sol, .proto { flex: none; }
-  .map { min-height: 200px; height: auto; }
-  .log { max-height: 160px; }
+  .scene { min-height: 260px; }
+  .log { max-height: 150px; }
   .carousel { height: 440px; }
   .vrow { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .vrow.h, .vrow .arr { display: none; }
@@ -480,7 +534,7 @@ body[data-tone="dark"] .nav { color: var(--white); }
 
 <!-- 5 SOLUTION -->
 <section class="slide light" id="solution" data-title="Solution" aria-label="Solution">
-  <p class="eyebrow a" style="--d:0">The solution · live simulation</p>
+  <p class="eyebrow a" style="--d:0">The solution · auto simulation</p>
   <h2 class="a" style="--d:1">One photo. Five smart steps.</h2>
   <div class="sol">
     <div class="steps" id="steps">
@@ -490,43 +544,25 @@ body[data-tone="dark"] .nav { color: var(--white); }
       <div class="step hot a" style="--d:5"><div class="si"><svg class="ico" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div><h3><span>4</span>Prioritise</h3><p>3 residents or 3 days unresolved makes it URGENT.</p></div>
       <div class="step a" style="--d:6"><div class="si"><svg class="ico" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></div><h3><span>5</span>Track</h3><p>Residents follow the case to Resolved and earn EcoPoints.</p></div>
     </div>
-    <div class="sim a" style="--d:3" aria-label="SISA hotspot simulator">
-      <div class="sim-head"><p class="ct">Hotspot simulator</p><p class="live"><i></i>Resident app → Admin dashboard</p></div>
-      <svg class="map" viewBox="0 0 400 260" role="img" aria-label="Township map with one hotspot">
-        <rect width="400" height="260" fill="#123328"/>
-        <g fill="#1E4637">
-          <rect x="20" y="20" width="110" height="70" rx="6"/><rect x="150" y="20" width="90" height="70" rx="6"/><rect x="260" y="20" width="120" height="70" rx="6"/>
-          <rect x="20" y="110" width="110" height="60" rx="6"/><rect x="150" y="110" width="90" height="60" rx="6"/><rect x="260" y="110" width="120" height="60" rx="6"/>
-          <rect x="20" y="190" width="110" height="50" rx="6"/><rect x="150" y="190" width="230" height="50" rx="6"/>
-        </g>
-        <g fill="#28594A"><rect x="270" y="30" width="44" height="24" rx="3"/><rect x="322" y="30" width="48" height="24" rx="3"/><rect x="30" y="120" width="40" height="40" rx="3"/></g>
-        <text x="150" y="104" fill="#8FB3A3" font-size="9" letter-spacing="1">JALAN UTAMA</text>
-        <text x="30" y="184" fill="#8FB3A3" font-size="9" letter-spacing="1">BLOCK C WALKWAY</text>
-        <g>
-          <circle cx="80" cy="55" r="6" fill="#8FE3B4"/><path d="m77 55 2 2 4-4" stroke="#0B241C" stroke-width="1.6" fill="none"/>
-          <circle cx="330" cy="140" r="6" fill="#8FE3B4"/><path d="m327 140 2 2 4-4" stroke="#0B241C" stroke-width="1.6" fill="none"/>
-        </g>
-        <g id="pin" transform="translate(140 196)" opacity="0">
-          <circle class="pulse" cx="0" cy="0" r="10" fill="none" stroke="#E4572E" stroke-width="2" id="pulse1"/>
-          <circle class="pulse p2" cx="0" cy="0" r="10" fill="none" stroke="#E4572E" stroke-width="2" id="pulse2"/>
-          <circle id="pinDot" cx="0" cy="0" r="11" fill="#F2A33A"/>
-          <text id="pinNum" x="0" y="4" text-anchor="middle" font-size="12" font-weight="700" fill="#0B241C">1</text>
-        </g>
-        <g id="ghosts"></g>
-      </svg>
+    <div class="sim a" style="--d:3" aria-label="SISA 3D hotspot simulation">
+      <div class="sim-head"><p class="ct">Live simulation · residential park</p><p class="live"><i></i>Resident app → Admin dashboard</p></div>
+      <div class="scene" id="scene" role="img" aria-label="3D residential park where residents report a rubbish pile, it becomes an urgent hotspot, and a truck clears it">
+        <p class="toast" id="toast">⚠ URGENT alert sent to management</p>
+        <div class="cam" id="cam"><div class="world" id="world"></div></div>
+      </div>
       <div class="case">
         <div class="case-top"><p class="case-name">Block C walkway</p><p class="status" id="status">No report</p></div>
         <div class="stats">
           <div class="stat"><b id="sReports">0</b><span>confirmations merged</span></div>
           <div class="stat"><b id="sCases">0</b><span>case for management</span></div>
         </div>
-        <ul class="log" id="log" aria-live="polite"><li>Press “Resident A reports” to start.</li></ul>
+        <ul class="log" id="log" aria-live="polite"><li>The simulation starts automatically.</li></ul>
       </div>
       <div class="sim-ctl">
-        <button class="sbtn primary" id="bReport" type="button"><svg class="ico" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg><span id="bReportLabel">Resident A reports</span></button>
-        <button class="sbtn" id="bAgain" type="button" disabled>Same resident again</button>
-        <button class="sbtn" id="bResolve" type="button" disabled>Management resolves</button>
-        <button class="sbtn" id="bReset" type="button">Reset</button>
+        <button class="sbtn" id="bPlay" type="button" aria-label="Pause simulation"><svg class="ico" viewBox="0 0 24 24" id="playIco"><path d="M8 5v14"/><path d="M16 5v14"/></svg><span id="playLab">Pause</span></button>
+        <button class="sbtn" id="bReplay" type="button"><svg class="ico" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Replay</button>
+        <div class="tl" aria-hidden="true"><i id="tlBar"></i></div>
+        <p class="tl-lab" id="tlLab">Step 0 of 5</p>
       </div>
     </div>
   </div>
@@ -653,8 +689,8 @@ window.PITCH = [
     text: "Our survey of 44 residents answers that. **65.9%** see dumped rubbish near their home at least once a month. Among those who never reported, the top reason, at **39.4%**, is that they don’t know where to report. Satisfaction with current channels is only **2.64 out of 5**. Residents asked for two things: send reports to the right council, and allow follow-up photos. Ariff?",
     tip: "Read the numbers slowly. The orange bar is your main point." },
   { slide: 5, title: "Solution", speaker: "Ariff",
-    text: "Thank you, Aiman. SISA works on the phone residents already have, in five steps. One, **report**: [click] snap a photo with the location. Two, **verify**: AI checks the waste type, severity and public land. Three, **merge**: [click] the same rubbish becomes one hotspot, one confirmation per account. Four, **prioritise**: [click] three confirmations or three days unresolved makes it urgent. Five, **track**: residents follow it to Resolved and earn EcoPoints. Najib will now show you the real app.",
-    tip: "Each [click] is the orange button in the simulator: Resident A, then B, then C. The map turns red and URGENT on the third click. Press Reset before the pitch starts." },
+    text: "Thank you, Aiman. SISA works on the phone residents already have, in five steps. One, **report**: snap a photo with the location. Two, **verify**: AI checks the waste type, severity and public land. Three, **merge**: the same rubbish becomes one hotspot, one confirmation per account. Four, **prioritise**: three confirmations or three days unresolved makes it urgent. Five, **track**: residents follow it to Resolved and earn EcoPoints. Najib will now show you the real app.",
+    tip: "The 3D simulation plays by itself when the slide opens, and each step lights up on the left. Pace yourself with it: say each step as it lights up. If you fall behind, press Replay." },
   { slide: 6, title: "Prototype showcase · live demo", speaker: "Najib",
     text: "Thank you, Ariff. I built this prototype, so let me show you the real app. [demo] On the left is the resident app in phone view; on the right, the admin dashboard. I upload a photo of the rubbish, and the app scans it. [demo] Two neighbours already reported this same rubbish, so instead of a new complaint, my report joins their hotspot as the third confirmation. [demo] And on the admin dashboard, the case has just turned **URGENT**, with a notification for management, in real time. We built it with **Flutter and Firebase**. In testing, merging, EcoPoints and the Day 2 and Day 3 alerts all worked on desktop and iPhone. To be transparent, the AI scan is still simulated, so connecting a real AI model is our next step. Haziq?",
     tip: "Syazwan presses Alt+Tab to the demo windows when you say “let me show you”, and Alt+Tab back to the deck, then moves to slide 7, when you say “Haziq”. Each [demo] is one action in the resident app on the left; point at the admin dashboard on the right for the URGENT notification. If anything fails, keep talking while Syazwan plays the demo video. Never try to fix it live." },
@@ -760,6 +796,7 @@ window.QA = [
     countUp(s);
     if (s.id === 'problem') { people(); try { reel.currentTime = 0; const p = reel.play(); p && p.catch(() => {}); } catch (e) {} } else { try { reel.pause(); } catch (e) {} }
     if (s.id === 'prototype') startCarousel(); else stopCarousel();
+    if (s.id === 'solution') { window.simEnter && window.simEnter(); } else { window.simLeave && window.simLeave(); }
     fillNotes(i);
     rings.forEach(r => r.active = r.slide === s);
     if (!fromHash && location.hash !== '#' + s.id) { try { history.replaceState(null, '', '#' + s.id); } catch (e) {} }
@@ -850,54 +887,148 @@ window.QA = [
   addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
   addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
-    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5 && !e.target.closest('.sim, .carousel')) dx < 0 ? next() : prev();
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5 && !e.target.closest('.sim-ctl, .carousel')) dx < 0 ? next() : prev();
   }, { passive: true });
   addEventListener('hashchange', () => { const k = slides.findIndex(s => '#' + s.id === location.hash); if (k >= 0 && k !== cur) go(k, true); });
   setTimeout(() => document.getElementById('hint').classList.add('gone'), 5000);
 
-  // hotspot simulator
-  const sim = { n: 0, resolved: false };
-  const RES = ['A', 'B', 'C'];
+  // 3D residential-park simulation (CSS 3D, no library)
   const $ = id => document.getElementById(id);
-  const pin = $('pin'), dot = $('pinDot'), num = $('pinNum'), stEl = $('status'), log = $('log'), ghosts = $('ghosts');
+  const world = $('world'), scene = $('scene'), cam = $('cam');
   const steps = [...document.querySelectorAll('#steps .step')];
-  function say(t, bad) { const li = document.createElement('li'); li.textContent = t; if (bad) li.className = 'bad'; log.prepend(li); }
-  function setSteps(done, now) { steps.forEach((s, k) => { s.classList.toggle('done', k < done); s.classList.toggle('now', k === now); }); }
-  function ghost(x, y) {
-    if (RM) return;
-    const g = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    g.setAttribute('cx', x); g.setAttribute('cy', y); g.setAttribute('r', 7); g.setAttribute('fill', '#FBFBF8');
-    ghosts.appendChild(g);
-    g.animate([{ transform: 'translate(0,0)', opacity: 1 }, { transform: `translate(${140 - x}px, ${196 - y}px)`, opacity: 0 }], { duration: 700, easing: 'cubic-bezier(.2,.8,.2,1)' }).onfinish = () => g.remove();
+  const el = (cls, css, parent = world, tag = 'div') => { const d = document.createElement(tag); if (cls) d.className = cls; if (css) d.style.cssText = css; parent.appendChild(d); return d; };
+  function flat(cls, x, y, w, h, extra = '') { return el('flat ' + cls, `left:${x}px;top:${y}px;width:${w}px;height:${h}px;${extra}`); }
+  function box(x, y, w, d, h, top, side, front, parent = world, z = 0) {
+    const b = el('box', `left:${x}px;top:${y}px;width:${w}px;height:${d}px;transform:translateZ(${z}px)`, parent);
+    const f = (tf, W, H, bg) => el('', `width:${W}px;height:${H}px;background:${bg};transform:${tf}`, b, 'i');
+    f(`rotateX(90deg)`, w, h, side);                              // north
+    f(`translateY(${d}px) rotateX(90deg)`, w, h, front);           // south
+    f(`rotateZ(90deg) rotateX(90deg)`, d, h, side);                // west
+    f(`translateX(${w}px) rotateZ(90deg) rotateX(90deg)`, d, h, front); // east
+    f(`translateZ(${h}px)`, w, d, top);                            // roof
+    return b;
   }
-  function render() {
-    const n = sim.n, urgent = n >= 3 && !sim.resolved;
-    pin.setAttribute('opacity', n ? 1 : 0);
-    num.textContent = sim.resolved ? '✓' : n;
-    dot.setAttribute('fill', sim.resolved ? '#8FE3B4' : urgent ? '#E4572E' : '#F2A33A');
-    dot.setAttribute('r', urgent ? 14 : 11);
-    num.setAttribute('fill', urgent ? '#FBFBF8' : '#0B241C');
-    ['pulse1', 'pulse2'].forEach(id => { $(id).style.display = urgent && !RM ? '' : 'none'; });
-    stEl.className = 'status' + (sim.resolved ? ' resolved' : urgent ? ' urgent' : n ? ' pending' : '');
-    stEl.textContent = sim.resolved ? 'Resolved' : urgent ? 'URGENT' : n ? 'Pending' : 'No report';
-    $('sReports').textContent = n; $('sCases').textContent = n ? 1 : 0;
-    $('bReport').disabled = n >= 3 || sim.resolved;
-    $('bReportLabel').textContent = n === 0 ? 'Resident A reports' : n < 3 ? `Resident ${RES[n]} confirms` : 'Hotspot is urgent';
-    $('bAgain').disabled = n === 0 || sim.resolved;
-    $('bResolve').disabled = n === 0 || sim.resolved;
-    if (sim.resolved) setSteps(5, 4); else if (n >= 3) setSteps(4, 3); else if (n === 2) setSteps(3, 2); else if (n === 1) setSteps(2, 1); else setSteps(0, -1);
+  function bb(cls, x, y, parent = world) { const w = el('bb ' + cls, `left:${x}px;top:${y}px`, parent); const up = el('up', '', w); return { w, up }; }
+  // ground, roads, park
+  el('gnd');
+  flat('road h', 0, 188, 640, 40);
+  flat('road v', 372, 0, 40, 420);
+  flat('walk', 0, 180, 372, 8); flat('walk', 412, 180, 228, 8); flat('walk', 0, 228, 372, 8); flat('walk', 412, 228, 228, 8);
+  flat('walk', 364, 0, 8, 180); flat('walk', 412, 0, 8, 180); flat('walk', 364, 236, 8, 184); flat('walk', 412, 236, 8, 184);
+  flat('park', 20, 250, 330, 156);
+  flat('walk', 180, 250, 10, 156, 'border-radius:4px');
+  flat('walk', 190, 320, 160, 10, 'border-radius:4px');
+  flat('pond', 40, 330, 90, 56);
+  const lab = (t, x, y, r = 0) => el('lbl', `left:${x}px;top:${y}px;transform:rotate(${r}deg)`).textContent = t;
+  lab('JALAN UTAMA', 470, 203); lab('JALAN 3', 386, 300, 90); lab('BLOCK C WALKWAY', 200, 312); lab('TAMAN PARK', 60, 262);
+  // terrace houses (north-west)
+  const roofs = ['#c8553d', '#b5653f', '#d0743c', '#a94e3a', '#c46a45'];
+  for (let i = 0; i < 5; i++) {
+    const x = 24 + i * 66;
+    box(x, 40, 58, 76, 34, '#e9e2d0', '#cfc6b2', '#ddd4c0');
+    box(x + 2, 44, 54, 68, 10, roofs[i], '#8a3b2b', '#9b4430', world, 34);
+    flat('walk', x + 20, 116, 18, 64);
   }
-  $('bReport').addEventListener('click', () => {
-    sim.n++;
-    if (sim.n === 1) say('Resident A sent a photo. AI check: household waste, medium severity, public land (simulated). Hotspot created.');
-    else if (sim.n === 2) { ghost(60, 120); say('Resident B reported the same rubbish. Merged into the same hotspot, not a new complaint.'); }
-    else { ghost(330, 230); say('Resident C confirmed. 3 confirmations: priority is now URGENT and management is alerted.'); }
-    render();
-  });
-  $('bAgain').addEventListener('click', () => say(`Resident ${RES[sim.n - 1]} tried to confirm again. Blocked: one confirmation per account.`, true));
-  $('bResolve').addEventListener('click', () => { sim.resolved = true; say('Management cleared the rubbish and closed the case. Residents see Resolved and earn EcoPoints.'); render(); });
-  $('bReset').addEventListener('click', () => { sim.n = 0; sim.resolved = false; log.innerHTML = '<li>Press “Resident A reports” to start. Without 3 confirmations, a case still turns urgent after 3 days unresolved.</li>'; render(); });
-  render();
+  // flats (north-east)
+  box(436, 30, 80, 120, 120, '#d9dee0', '#aeb7bb', '#c3cbcf');
+  box(540, 30, 80, 120, 96, '#d9dee0', '#aeb7bb', '#c3cbcf');
+  for (let f = 0; f < 5; f++) { flat('', 446, 36 + f * 22, 60, 2, 'background:rgba(0,0,0,0)'); }
+  // houses (south-east)
+  for (let i = 0; i < 3; i++) { const x = 436 + i * 66; box(x, 262, 58, 70, 32, '#ece5d3', '#cfc6b2', '#ddd4c0'); box(x + 2, 266, 54, 62, 9, '#5f7f8f', '#3f5a66', '#4c6b78', world, 32); }
+  // trees
+  const tree = (x, y, s = 1) => { box(x - 2, y - 2, 4, 4, 10 * s, '#6b4a2b', '#5a3d22', '#6b4a2b'); box(x - 9 * s, y - 9 * s, 18 * s, 18 * s, 16 * s, '#2f8a43', '#24703a', '#2a7d3e', world, 10 * s); };
+  [[230, 270], [270, 280], [320, 270], [240, 380], [300, 390], [150, 280], [150, 395], [100, 300], [26, 280], [335, 395], [600, 360], [440, 380]].forEach(([x, y], k) => tree(x, y, k % 3 ? 1 : 1.25));
+  // playground
+  box(220, 345, 30, 22, 14, '#f2a33a', '#c97f1f', '#de9128');
+  // rubbish pile beside the walkway
+  const PX = 330, PY = 345;
+  const pile = el('box pile', `left:${PX - 22}px;top:${PY - 16}px;width:44px;height:32px`);
+  [[0, 4, 14, 12, 10, '#1b1d1c'], [12, 0, 13, 12, 11, '#222524'], [22, 10, 14, 13, 9, '#1a1b1a'], [6, 16, 12, 11, 9, '#2a2c2a'], [26, 18, 16, 12, 12, '#7a5a3a']].forEach(([x, y, w, d, h, c]) => box(x, y, w, d, h, c, '#111', c, pile));
+  const ring1 = el('ringg', `left:${PX - 40}px;top:${PY - 40}px`), ring2 = el('ringg r2', `left:${PX - 40}px;top:${PY - 40}px`);
+  const scanEl = el('scan', `left:${PX - 45}px;top:${PY - 45}px`);
+  const beacon = bb('beacon', PX, PY - 4); el('beam', '', beacon.up); const badge = el('badge2', '', beacon.up); badge.textContent = '1';
+  const ai = bb('aitag', PX, PY); el('', '', ai.up, 'p').textContent = 'AI check (simulated): household waste · medium · public land ✓';
+  // truck
+  const truck = el('box truck', 'left:0;top:0;width:0;height:0');
+  const tb = el('', 'position:absolute;left:-26px;top:-12px;width:52px;height:24px', truck);
+  box(0, 0, 34, 24, 22, '#e8ece9', '#b9c2bd', '#d3d9d5', tb); box(34, 2, 18, 20, 16, '#1d7148', '#155536', '#1a6440', tb);
+  // residents
+  const RES = [
+    { n: 'A', c: '#6EC1FF', home: [110, 182], spot: [300, 312] },
+    { n: 'B', c: '#F7D36B', home: [470, 182], spot: [356, 316] },
+    { n: 'C', c: '#F59BB0', home: [520, 238], spot: [352, 372] }
+  ].map(r => { const p = bb('person', 0, 0); p.w.style.setProperty('--c', r.c); el('', '', p.up, 'b'); el('', '', p.up, 's'); r.tag = el('tag', '', p.up, 'span'); r.flash = el('flash', '', p.w); r.p = p; return r; });
+  const place = (node, x, y, rot = 0, instant = false) => { if (instant) node.style.transition = 'none'; node.style.transform = `translate3d(${x}px, ${y}px, 0) rotateZ(${rot}deg)`; if (instant) { node.offsetWidth; node.style.transition = ''; } };
+  function walk(r, to) { r.p.w.classList.add('walking'); place(r.p.w, to[0], to[1]); setTimeout(() => r.p.w.classList.remove('walking'), RM ? 0 : 2300); }
+  function say(r, text, cls = '') { clearTimeout(r.tt); r.tag.textContent = text; r.tag.className = 'tag show ' + cls; r.tt = setTimeout(() => r.tag.classList.remove('show'), 2600); }
+  function snap(r) { r.flash.classList.remove('go'); r.flash.offsetWidth; r.flash.classList.add('go'); }
+
+  // fit the 640×420 world into the scene
+  function fit() { const b = scene.getBoundingClientRect(); const s = Math.min(b.width / 640, b.height / 420) * 1.55; cam.style.transform = `scale(${s}) translate(-28px, -46px)`; }
+  new ResizeObserver(fit).observe(scene);
+  // gentle camera orbit
+  let camA = -32, active = false;
+  function orbit(t) {
+    if (!RM) camA = -32 + Math.sin(t / 5200) * 9;
+    world.style.transform = `translateY(30px) rotateX(56deg) rotateZ(${camA}deg)`;
+    world.style.setProperty('--cam', camA + 'deg');
+    if (active && !RM) requestAnimationFrame(orbit);
+  }
+
+  // panel
+  const stEl = $('status'), log = $('log'), toast = $('toast');
+  function logLine(t, bad) { const li = document.createElement('li'); li.textContent = t; if (bad) li.className = 'bad'; log.prepend(li); while (log.children.length > 6) log.lastChild.remove(); }
+  function setStep(k) { steps.forEach((s, i) => { s.classList.toggle('done', i < k - 1 || k === 6); s.classList.toggle('now', i === k - 1); }); $('tlLab').textContent = k >= 6 ? 'Resolved · replaying soon' : `Step ${Math.max(0, k)} of 5`; }
+  function setCount(n, status) {
+    $('sReports').textContent = n; $('sCases').textContent = n ? 1 : 0; badge.textContent = status === 'resolved' ? '✓' : n;
+    beacon.w.classList.toggle('on', n > 0); beacon.w.classList.toggle('urgent', status === 'urgent'); beacon.w.classList.toggle('ok', status === 'resolved');
+    beacon.w.classList.add('bump'); setTimeout(() => beacon.w.classList.remove('bump'), 350);
+    stEl.className = 'status ' + (status || ''); stEl.textContent = { pending: 'Pending', urgent: 'URGENT', resolved: 'Resolved' }[status] || 'No report';
+    [ring1, ring2].forEach(r => { r.classList.toggle('on', status === 'urgent'); r.style.setProperty('--rc', '#E4572E'); });
+  }
+  function reset() {
+    RES.forEach(r => { place(r.p.w, r.home[0], r.home[1], 0, true); r.tag.className = 'tag'; });
+    place(truck, 700, 208, 180, true); truck.classList.remove('show');
+    pile.classList.remove('gone'); scanEl.classList.remove('on'); ai.w.classList.remove('on');
+    toast.className = 'toast'; setCount(0, ''); setStep(0);
+    log.innerHTML = '<li>Residents of the taman go about their day. A pile of rubbish appears beside Block C walkway.</li>';
+  }
+  const R = RES;
+  const TL = [
+    [1.0, () => { setStep(1); walk(R[0], R[0].spot); logLine('Resident A walks to the rubbish and opens SISA.'); }],
+    [3.6, () => { snap(R[0]); say(R[0], '📷 Photo + location'); setCount(1, 'pending'); logLine('Resident A sends one photo. The app records the location. Hotspot created.'); }],
+    [6.6, () => { setStep(2); scanEl.classList.add('on'); ai.w.classList.add('on'); logLine('AI checks the waste type, severity and public land (simulated in our prototype).'); }],
+    [10.0, () => { scanEl.classList.remove('on'); ai.w.classList.remove('on'); walk(R[0], R[0].home); }],
+    [11.2, () => { setStep(3); walk(R[1], R[1].spot); logLine('Resident B sees the same rubbish.'); }],
+    [13.8, () => { snap(R[1]); say(R[1], 'Merged · 2'); setCount(2, 'pending'); logLine('Same rubbish, same hotspot: merged instead of a new complaint.'); }],
+    [16.0, () => { say(R[1], '✕ Already confirmed', 'bad'); logLine('Resident B tries to confirm again: blocked. One confirmation per account.', true); }],
+    [17.4, () => walk(R[1], R[1].home)],
+    [18.4, () => { setStep(4); walk(R[2], R[2].spot); logLine('Resident C confirms the same hotspot.'); }],
+    [21.0, () => { snap(R[2]); say(R[2], 'Confirmed · 3'); setCount(3, 'urgent'); toast.className = 'toast show'; logLine('3 confirmations: priority is now URGENT and management is alerted.', true); }],
+    [24.0, () => { walk(R[2], R[2].home); toast.className = 'toast'; }],
+    [25.2, () => { setStep(5); truck.classList.add('show'); place(truck, 392, 208, 180); logLine('Management dispatches a cleaning crew from the admin dashboard.'); }],
+    [27.5, () => place(truck, 392, 330, 90)],
+    [29.8, () => { pile.classList.add('gone'); setCount(3, 'resolved'); toast.textContent = '✓ Case resolved · residents notified'; toast.className = 'toast ok show'; logLine('Rubbish cleared. Residents see Resolved and earn EcoPoints.'); RES.forEach(r => say(r, '+ EcoPoints', 'eco')); }],
+    [33.0, () => { setStep(6); place(truck, 392, 470, 90); truck.classList.remove('show'); toast.className = 'toast ok'; }],
+    [37.5, () => { toast.textContent = '⚠ URGENT alert sent to management'; reset(); }]
+  ];
+  const DUR = 38.5;
+  let timers = [], t0 = 0, offset = 0, playing = false, barRaf = 0;
+  function schedule(from) {
+    timers.forEach(clearTimeout); timers = [];
+    TL.forEach(([t, fn]) => { if (t >= from) timers.push(setTimeout(fn, (t - from) * 1000)); });
+    timers.push(setTimeout(() => { offset = 0; schedule(0); t0 = performance.now(); }, (DUR - from) * 1000));
+    t0 = performance.now() - from * 1000;
+  }
+  function bar() { if (!playing) return; const e = ((performance.now() - t0) / 1000) % DUR; $('tlBar').style.width = (e / DUR * 100) + '%'; barRaf = requestAnimationFrame(bar); }
+  function play(from = 0) { playing = true; schedule(from); cancelAnimationFrame(barRaf); bar(); $('playLab').textContent = 'Pause'; $('playIco').innerHTML = '<path d="M8 5v14"/><path d="M16 5v14"/>'; $('bPlay').setAttribute('aria-label', 'Pause simulation'); }
+  function pause() { playing = false; offset = ((performance.now() - t0) / 1000) % DUR; timers.forEach(clearTimeout); timers = []; $('playLab').textContent = 'Play'; $('playIco').innerHTML = '<path d="m7 4 13 8-13 8z"/>'; $('bPlay').setAttribute('aria-label', 'Play simulation'); }
+  function restart() { reset(); play(0); }
+  $('bPlay').addEventListener('click', () => playing ? pause() : play(offset));
+  $('bReplay').addEventListener('click', restart);
+  window.simEnter = () => { active = true; fit(); requestAnimationFrame(orbit); restart(); };
+  window.simLeave = () => { active = false; pause(); };
+  reset(); orbit(0); fit();
 
   size();
   const start = slides.findIndex(s => '#' + s.id === location.hash);
