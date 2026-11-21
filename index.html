@@ -97,6 +97,7 @@ body[data-tone="dark"] .nav { color: var(--white); }
 .notes-head b { color: var(--ink); background: var(--mint); border-radius: 999px; padding: 2px 10px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
 .notes p { font-size: 17px; line-height: 1.6; }
 .notes strong { color: var(--amber); }
+.notes .clk { font-style: normal; font-weight: 700; color: var(--mint); font-size: 13px; letter-spacing: .06em; }
 .notes .tipline { margin-top: 8px; font-size: 13px; color: var(--t-light); }
 .hint { position: fixed; top: calc(14px + env(safe-area-inset-top, 0px)); right: max(16px, env(safe-area-inset-right, 0px)); z-index: 20; font-size: 12px; padding: 6px 10px; border-radius: 8px; background: rgba(11,36,28,.85); color: var(--t-light); transition: opacity .6s; pointer-events: none; }
 .hint.gone { opacity: 0; }
@@ -645,17 +646,17 @@ window.PITCH = [
     text: "I am Syazwan. Our team leader, **Arief Najib**, built the prototype. **Aiman** will explain the problem, **Ariff** will introduce our solution, and **Haziq** will explain what makes it different. I will close with our target customers. Aiman, over to you.",
     tip: "Gesture to each member as you say their name." },
   { slide: 3, title: "Problem statement", speaker: "Aiman",
-    text: "Thank you, Syazwan. **Three out of four** residents we surveyed have never reported the rubbish they see. [pause] This photo was taken by our own team: rubbish bags dumped beside a public walkway. And it is a national problem. Malaysia throws away around **39,000 tonnes** of solid waste every day, and in 2024, **2,634** illegal dumping sites were shut down. Residents can already report through hotlines, WhatsApp or SISPAA, but every report becomes a separate complaint. So why do people stay silent?",
-    tip: "Pause for a full second after “three out of four”. Point at the photo." },
+    text: "Thank you, Syazwan. **Three out of four** residents we surveyed have never reported the rubbish they see. [pause] This was filmed by our own team: rubbish bags dumped beside a public walkway. And it is a national problem. Malaysia throws away around **39,000 tonnes** of solid waste every day, and in 2024, **2,634** illegal dumping sites were shut down. Residents can already report through hotlines, WhatsApp or SISPAA, but every report becomes a separate complaint. So why do people stay silent?",
+    tip: "Pause for a full second after “three out of four”. Point at the video on the right." },
   { slide: 4, title: "Survey findings", speaker: "Aiman",
     text: "Our survey of 44 residents gives the answer. **65.9%** see rubbish dumped near their home at least once a month. But of those who never reported, the biggest reason is that **39.4%** simply don’t know where to report. Satisfaction with current channels is only **2.64 out of 5**. Residents also told us what they want: send reports to the right council, and allow follow-up photos if the rubbish is still there. Ariff will now show you our solution.",
     tip: "Read the numbers slowly. The orange bar is your main point." },
   { slide: 5, title: "Solution", speaker: "Ariff",
-    text: "Thank you, Aiman. SISA works on the phone residents already have, in five steps. One, **report**: snap a photo, and the app records the location. Two, **verify**: AI checks the waste type, how serious it is, and that it is on public land. Three, **merge**: reports of the same rubbish become one hotspot, and each account can confirm only once. Four, **prioritise**: three confirmations or three days unresolved makes it urgent. Five, **track**: residents follow the case to Resolved and earn EcoPoints. Residents use the app; township management uses the admin dashboard. Najib will now show our prototype.",
-    tip: "Count the steps on your fingers. Keep each step to one breath." },
+    text: "Thank you, Aiman. SISA works on the phone residents already have, in five steps. One, **report**: [click] snap a photo, and the app records the location. Two, **verify**: AI checks the waste type, how serious it is, and that it is on public land. Three, **merge**: [click] reports of the same rubbish become one hotspot, and each account can confirm only once. Four, **prioritise**: [click] three confirmations or three days unresolved makes it urgent. Five, **track**: residents follow the case to Resolved and earn EcoPoints. Residents use the app; township management uses the admin dashboard. Najib will now show our prototype.",
+    tip: "Each [click] is the orange button in the simulator: Resident A, then B, then C. The map turns red and URGENT on the third click. Press Reset before the pitch starts." },
   { slide: 6, title: "Prototype showcase", speaker: "Najib",
-    text: "Thank you, Ariff. This is our working prototype. First, the resident takes a photo and the app scans it. Second, the home screen shows EcoPoints and the township hotspot map. Third, when three residents confirm the same hotspot, management gets an **urgent alert**. We built it with **Flutter and Firebase**, so the resident app and the admin dashboard update in real time. In testing, merging, EcoPoints and the Day 2 and Day 3 alerts all worked on desktop and iPhone. To be transparent, the AI scan is still simulated, so our next step is to connect a real AI model. Haziq?",
-    tip: "Keep the live demo ready on a laptop for Q&A, not for the pitch itself." },
+    text: "Thank you, Ariff. This is our working prototype. First, the resident takes a photo and the app scans it. Second, [click] the home screen shows EcoPoints and the township hotspot map. Third, [click] when three residents confirm the same hotspot, management gets an **urgent alert**. We built it with **Flutter and Firebase**, so the resident app and the admin dashboard update in real time. In testing, merging, EcoPoints and the Day 2 and Day 3 alerts all worked on desktop and iPhone. To be transparent, the AI scan is still simulated, so our next step is to connect a real AI model. Haziq?",
+    tip: "Each [click] is the right arrow under the phones; clicking stops the automatic rotation so the screens follow you. Keep the live demo ready for Q&A." },
   { slide: 7, title: "Value proposition", speaker: "Haziq",
     text: "Thank you, Najib. Reporting itself is not new. What is new is the **logic after the report**. Today, if ten residents report the same rubbish, that is ten separate complaints. SISA merges them into one hotspot. Existing channels have no clear way to rank urgency; SISA raises priority automatically. And residents rarely hear back; SISA lets them track every case to Resolved. Residents agree: **88.6%** found one-photo reporting useful, **84.1%** tracking, and **79.5%** priority escalation. Syazwan will explain who we serve.",
     tip: "Stress “after”. Move your hand left to right across the table rows." },
@@ -737,11 +738,11 @@ window.QA = [
   function fillNotes(i) {
     const s = P[i]; if (!s) return;
     document.getElementById('nSpk').textContent = s.speaker;
-    const w = s.text.replace(/\[pause\]|\*\*/g, '').split(/\s+/).filter(Boolean).length;
+    const w = s.text.replace(/\[pause\]|\[click\]|\*\*/g, '').split(/\s+/).filter(Boolean).length;
     document.getElementById('nMeta').textContent = `Slide ${i + 1} · ${s.title} · about ${Math.round(w / 130 * 60)} seconds`;
     const esc = t => t.replace(/&/g, '&amp;').replace(/</g, '&lt;');
-    document.getElementById('nText').innerHTML = esc(s.text).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\[pause\]/g, '<em>(pause)</em>');
-    document.getElementById('nTip').textContent = 'Delivery: ' + s.tip;
+    document.getElementById('nText').innerHTML = esc(s.text).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\[pause\]/g, '<em>(pause)</em>').replace(/\[click\]/g, '<em class="clk">[click]</em>');
+    document.getElementById('nTip').textContent = 'Delivery: ' + s.tip.replace(/\[click\]/g, 'click');
   }
 
   const reel = document.getElementById('reel');
